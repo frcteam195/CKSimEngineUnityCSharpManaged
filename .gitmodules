@@ -1,6 +1,3 @@
-[submodule "CKSimEnginePlugin/CKlibzmq"]
-	path = CKSimEnginePlugin/CKlibzmq
-	url = https://github.com/frcteam195/CKlibzmq.git
 [submodule "CKSimEnginePlugin/CKSimProtoSpecLib"]
 	path = CKSimEnginePlugin/CKSimProtoSpecLib
 	url = https://github.com/frcteam195/CKSimProtoSpecLib.git
