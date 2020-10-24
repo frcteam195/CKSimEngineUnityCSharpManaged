@@ -6,7 +6,6 @@ using Unity.Jobs;
 
 public class CKSimUpdater : MonoBehaviour
 {
-    private CKSimNetCode ckSim = CKSimNetCode.Instance;
 
     // Start is called before the first frame update
     void Start()
