@@ -7,14 +7,14 @@ public class CKSimCIM : ICKSimMotor
 {
     private float Ks { get; } = 0.30165000f; //0.781046438 angular  // V  //Static friction offset voltage
     private float Kv { get; } = 0.0210063041f;  // V per rad/s
-    private float Ka { get; } = 0.686739979f;  // V per rad/s^2
+    private float Ka { get; } = 0.00866739979f;  // V per rad/s^2
     private float kEpsilon { get; } = 1e-6f;  //RPM
     private float SpeedPerVolt {
         get {
             return 1.0f / Kv;
         }
     }
-    public float LeverRadius { get; set; } = 0.118f; //Meters
+    public float LeverRadius { get; set; } = 0.0134f; //Meters
     public float SystemInertia { get; set; } = 20.0f; //kg
     private float TorquePerVolt { 
         get {
@@ -38,7 +38,7 @@ public class CKSimCIM : ICKSimMotor
             return 0;
         }
         //Debug.Log($@"Timestep {Time.time - prevTime}");
-        CurrentSpeedRadPerSec += (GetEffectiveVoltageAfterFriction(inputVoltage) - (CurrentSpeedRadPerSec / SpeedPerVolt)) * (Ka);
+        CurrentSpeedRadPerSec += (GetEffectiveVoltageAfterFriction(inputVoltage) - (CurrentSpeedRadPerSec / SpeedPerVolt)) * (Ka / (Time.time - prevTime));
         Debug.Log($@"Effective Voltage {GetEffectiveVoltageAfterFriction(inputVoltage)}, CurrentSpeedVolt {(CurrentSpeedRadPerSec / SpeedPerVolt)}, CurrSpeed {CurrentSpeedRPM}, Output Torque {GetTorqueForVoltage(inputVoltage)}");
         prevTime = Time.time;
         return GetTorqueForVoltage(inputVoltage);
