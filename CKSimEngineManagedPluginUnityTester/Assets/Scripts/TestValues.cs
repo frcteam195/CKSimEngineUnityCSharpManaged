@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TestValues : MonoBehaviour
 {
+    CKSimCIM c = new CKSimCIM();
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,16 @@ public class TestValues : MonoBehaviour
         
     }
 
+    private uint counter;
     void FixedUpdate()
     {
-        CKSimNetCode.Instance.SetAccelerometer(0, 0.4f);
-        Debug.Log(CKSimNetCode.Instance.GetMotor(0));
+        //CKSimNetCode.Instance.SetAccelerometer(0, 0.4f);
+        //Debug.Log(CKSimNetCode.Instance.GetMotor(0));
+        c.GetOutputTorque(12);
+
+        if (counter++ % 100 == 0)
+        {
+            //Debug.Log(c.CurrentSpeedRPM);
+        }
     }
 }
