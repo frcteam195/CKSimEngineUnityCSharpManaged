@@ -39,7 +39,7 @@ public class CKSimCIM : ICKSimMotor
         }
         //Debug.Log($@"Timestep {Time.time - prevTime}");
         CurrentSpeedRadPerSec += (GetEffectiveVoltageAfterFriction(inputVoltage) - (CurrentSpeedRadPerSec / SpeedPerVolt)) * (Ka / (Time.time - prevTime));
-        Debug.Log($@"Effective Voltage {GetEffectiveVoltageAfterFriction(inputVoltage)}, CurrentSpeedVolt {(CurrentSpeedRadPerSec / SpeedPerVolt)}, CurrSpeed {CurrentSpeedRPM}, Output Torque {GetTorqueForVoltage(inputVoltage)}");
+        //Debug.Log($@"Effective Voltage {GetEffectiveVoltageAfterFriction(inputVoltage)}, CurrentSpeedVolt {(CurrentSpeedRadPerSec / SpeedPerVolt)}, CurrSpeed {CurrentSpeedRPM}, Output Torque {GetTorqueForVoltage(inputVoltage)}");
         prevTime = Time.time;
         return GetTorqueForVoltage(inputVoltage);
     }
